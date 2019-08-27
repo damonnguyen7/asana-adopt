@@ -1,5 +1,6 @@
 /* Globals */
 :root {
+  --nav--boxshadow: 0 2px 12px 0 rgba(36,50,66,.075);
   --font-primary: gordita, "Helvetica Neue", Helvetica, sans-serif;;
   --color-text-primary: #646f79;
   --color-text-secondary: rgb(100, 111, 121);
@@ -17,10 +18,39 @@ a {
 }
 
 h1, h2, h3, h4, h4, h6, p, div, a {
-  font-family: var(--font-family-primary);
+  font-family: var(--font-primary);
 }
 
 /* Partials */
+#nav {
+  box-shadow: var(--nav--boxshadow);
+  height: 54px;
+  padding: 0px 54px;
+  display: flex;
+}
+
+.nav__logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 54px;
+}
+
+.nav__logo-container img {
+  width: 112px;
+}
+
+.nav__sub-logo {
+  margin-left: 8px;
+  font-family: var(--font-family-primary);
+}
+
+.nav__sub-logo p {
+  color: #2D3C54;
+  font-weight: 300;
+  line-height: initial;
+}
+
 .site-header {
   padding-bottom: 2rem;
   padding-top: 2rem;
@@ -72,7 +102,9 @@ h1, h2, h3, h4, h4, h6, p, div, a {
 }
 
 @media screen and (max-width: 991px) {
-  
+  #nav {
+    padding: 0px 16px;
+  }  
 }
 
 @media screen and (max-width: 767px) {
