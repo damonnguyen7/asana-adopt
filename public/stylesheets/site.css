@@ -1,11 +1,9 @@
 /* Globals */
 :root {
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-serif: Georgia, serif;
-  --color-secondary: #333;
-  --color-link: #635ac7;
-
-  font-family: var(--font-sans);
+  --font-primary: gordita, "Helvetica Neue", Helvetica, sans-serif;;
+  --color-text-primary: #646f79;
+  --color-text-secondary: rgb(100, 111, 121);
+  --color-text-white: #FFFFFF;
   font-weight: normal;
   line-height: 1.5;
 }
@@ -18,23 +16,69 @@ a {
   color: var(--color-link);
 }
 
-/* Snippets */
+h1, h2, h3, h4, h4, h6, p, div, a {
+  font-family: var(--font-family-primary);
+}
+
+/* Partials */
 .site-header {
   padding-bottom: 2rem;
   padding-top: 2rem;
   text-align: center;
+  padding: 0px 16px;
+}
+
+.site-header h1 {
+  font-weight: 300;
+  font-family: var(--font-primary);
 }
 
 .site-header__quote {
   color: var(--color);
-  font-family: var(--font-serif);
+  font-family: var(--font-primary);
   margin-left: auto;
   margin-right: auto;
   max-width: 460px;
+  font-weight: 300;
+}
+
+.site-header__quote p {
+  font-size: 22px;
+  color: rgb(100, 111, 121);
+  font-weight: 300;
+}
+
+.site-header__quote cite {
+  font-weight: 400;
 }
 
 .site-footer {
-  color: var(--color);
-  font-family: var(--font-serif);
+  width: 100%;
+  color: var(--color-text-secondary);
+  font-family: var(--font-primary);
   text-align: center;
+  background-color: #222B37;
+  height: 54px;
+  color: #FFFFFF;
+  font-weight: 300;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.site-footer p {
+  padding: 0px 16px;
+}
+
+@media screen and (max-width: 991px) {
+  
+}
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 479px) {
+
 }
