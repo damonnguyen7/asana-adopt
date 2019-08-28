@@ -1,3 +1,8 @@
+/**
+ * fetchDogs - Makes a fetch for dog JSON data.
+ * @param {string} url
+ * @return void
+ */
 function fetchDogs(url) {
   return new Promise((resolve, reject) => {
     fetch(url)
@@ -6,14 +11,19 @@ function fetchDogs(url) {
       })
       .then((jsonData) => {
         const dogs = jsonData.dogs;
-        state.dogs = dogs;
         resolve(dogs);
       });
   });
 }
 
+/**
+ * createCard - Creates card container.
+ * @param {string} name
+ * @param {string} imageSrc
+ * @return node
+ */
 function createCard({name, imageSrc}) {
-  let card = document.createElement('DIV');
+  const card = document.createElement('DIV');
   card.classList.add('container__card');
   let bodyTemplate = `
     <div class="card__img-container">
@@ -28,18 +38,22 @@ function createCard({name, imageSrc}) {
   return card;
 }
 
+/**
+ * renderGridList - renders grid list of dog cards to the page.
+ * @param {object[]} dogs
+ * @return void
+ */
 function renderGridList(dogs) {
   const hasGridItems = container.children.length > 0;
   const fragment = document.createDocumentFragment();
   const body = document.getElementsByTagName('body')[0];
   if (hasGridItems) container.innerHTML = '';
+
   for (let i = 0; i < dogs.length; i++) {
-    let dog = dogs[i];
-    const { name, image, source } = dog;
+    const { name, image, source } = dogs[i];
     const smallImgSrc = `/photo?format=jpeg&width=640&imagePath=${image}`;
     const largeImgSrc = `/photo?format=jpeg&width=1280&imagePath=${image}`;
-    let card = createCard({name, imageSrc: smallImgSrc});
-
+    const card = createCard({name, imageSrc: smallImgSrc});
     card.addEventListener('click', (event) => {
       overlay.style.display="unset";
       body.style.overflow="hidden";
@@ -52,22 +66,39 @@ function renderGridList(dogs) {
     });
     fragment.appendChild(card);
   }
+
   container.append(fragment);
 }
 
-function renderPagination(start, end) {
+/**
+ * renderPagination - renders pagination to the page.
+ * @param {start} number
+ * @param {end} number
+ * @param {currentPage} number
+ * @return void
+ */
+function renderPagination(start, end, currentPage) {
   const paginationBtnContainer = document.querySelector('.pagination__btn-container');
   const fragment = document.createDocumentFragment();
   if (paginationBtnContainer.children.length > 0) paginationBtnContainer.innerHTML = '';
+
   for (let i = start; i <= end; i++) {
     let paginationBtn = document.createElement('div');
     paginationBtn.classList.add('pagination__btn');
     paginationBtn.innerHTML = `<a>${i}</a>`;
     paginationBtn.dataset.id = i;
-    if (i === state.pagination.currentPage) {
+    if (i === currentPage) {
       paginationBtn.classList.add('pagination__btn--active');
     }
     fragment.appendChild(paginationBtn);
   }
+
   paginationBtnContainer.append(fragment);
 };
+
+export {
+  fetchDogs,
+  createCard,
+  renderGridList,
+  renderPagination
+}
