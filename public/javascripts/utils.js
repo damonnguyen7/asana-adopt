@@ -33,7 +33,6 @@ function renderGridList(dogs) {
   const fragment = document.createDocumentFragment();
   const body = document.getElementsByTagName('body')[0];
   if (hasGridItems) container.innerHTML = '';
-
   for (let i = 0; i < dogs.length; i++) {
     let dog = dogs[i];
     const { name, image, source } = dog;
@@ -52,3 +51,20 @@ function renderGridList(dogs) {
   }
   container.append(fragment);
 }
+
+function renderPagination(start, end) {
+  const paginationBtnContainer = document.querySelector('.pagination__btn-container');
+  const fragment = document.createDocumentFragment();
+  if (paginationBtnContainer.children.length > 0) paginationBtnContainer.innerHTML = '';
+  for (let i = start; i <= end; i++) {
+    let paginationBtn = document.createElement('div');
+    paginationBtn.classList.add('pagination__btn');
+    paginationBtn.innerHTML = `<a>${i}</a>`;
+    paginationBtn.dataset.id = i;
+    if (i === state.pagination.currentPage) {
+      paginationBtn.classList.add('pagination__btn--active');
+    }
+    fragment.appendChild(paginationBtn);
+  }
+  paginationBtnContainer.append(fragment);
+};
