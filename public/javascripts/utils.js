@@ -17,7 +17,7 @@ function createCard({name, imageSrc}) {
   card.classList.add('container__card');
   let bodyTemplate = `
     <div class="card__img-container">
-      <img class="card__img" src="../${imageSrc}" alt="${name}">
+      <img class="card__img" src="${imageSrc}" alt="${name}">
     </div>
     <div class="card__body">
       <p class="card-body__p">${name === undefined ? 'Needs a name' : name}</p>
@@ -36,13 +36,16 @@ function renderGridList(dogs) {
   for (let i = 0; i < dogs.length; i++) {
     let dog = dogs[i];
     const { name, image, source } = dog;
-    let card = createCard({name, imageSrc: image});
+    const smallImgSrc = `/photo?format=jpeg&width=640&imagePath=${image}`;
+    const largeImgSrc = `/photo?format=jpeg&width=1280&imagePath=${image}`;
+    let card = createCard({name, imageSrc: smallImgSrc});
+
     card.addEventListener('click', (event) => {
       overlay.style.display="unset";
       body.style.overflow="hidden";
       let modal = `
         <div id="modal">
-          <img class="modal__img" src="../${image}" alt="${name}">
+          <img class="modal__img" src="${largeImgSrc}" alt="${name}">
         </div>
       `.trim();
       overlay.innerHTML = modal;
