@@ -194,7 +194,7 @@ h1, h2, h3, h4, h4, h6, p, div, a {
   cursor: pointer;
   border-radius: var(--border-radius-primary);
   width: 26px;
-  padding: 4px 0px;
+  padding: 3px;
   margin: 0px 1.5px;
   user-select: none;
 }
