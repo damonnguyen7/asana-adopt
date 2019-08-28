@@ -58,7 +58,7 @@ function renderGridList(dogs) {
       overlay.style.display="unset";
       body.style.overflow="hidden";
       let modal = `
-        <div id="modal">
+        <div id="modal">        
           <img class="modal__img" src="${largeImgSrc}" alt="${name}">
         </div>
       `.trim();
@@ -66,7 +66,6 @@ function renderGridList(dogs) {
     });
     fragment.appendChild(card);
   }
-
   container.append(fragment);
 }
 
