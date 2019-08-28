@@ -5,8 +5,10 @@
   --color-text-primary: #646f79;
   --color-text-secondary: rgb(100, 111, 121);
   --color-text-white: #FFFFFF;
+  --border-radius-primary: 3px;
+  --background-color-dark-primary: #222B37;
   font-weight: normal;
-  line-height: 1.5;
+  line-height: 1.5;;
 }
 
 body {
@@ -175,6 +177,63 @@ h1, h2, h3, h4, h4, h6, p, div, a {
 
 .site-footer p {
   padding: 0px 16px;
+}
+
+#pagination {
+  padding: 32px 0px;
+}
+
+.pagination__btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination__btn {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--border-radius-primary);
+  width: 26px;
+  padding: 4px 0px;
+  margin: 0px 1.5px;
+  user-select: none;
+}
+
+.pagination__btn--active {
+  background-color: var(--background-color-dark-primary);
+  border-radius: var(--border-radius-primary);
+  color: #FFFFFF;
+  box-shadow: 0 3px 5px 0 rgba(36,50,66,.1);
+  transition: .2s background-color ease-in, .2s box-shadow ease-in;
+}
+
+.pagination__btn:hover, .pagination__btn:active {
+  background-color: var(--background-color-dark-primary);
+  border-radius: var(--border-radius-primary);
+  color: #FFFFFF;
+  box-shadow: 0 3px 5px 0 rgba(36,50,66,.1);
+  transition: .2s background-color ease-in, .2s box-shadow ease-in;
+}
+
+.pagination__btn a {
+  margin: unset;
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: .15s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 991px) {
