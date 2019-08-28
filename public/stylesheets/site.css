@@ -248,6 +248,12 @@ h1, h2, h3, h4, h4, h6, p, div, a {
   }
 }
 
+@media screen and (max-width: 500px) {
+  #modal {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 479px) {
   #container {
     grid-template-columns: 1fr;
