@@ -5,7 +5,8 @@ A puppy gallary web application for Asana's pet adoption agency.
 ## Getting Started
 
 Install dependencies - `npm i` <br />
-Initialize application - `npm start`
+Initialize application - `npm start` <br />
+Put url in browser - `localhost:3000`
 
 ## Preview
 <p float="left">
