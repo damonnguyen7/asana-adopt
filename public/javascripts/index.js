@@ -1,8 +1,13 @@
 const overlay = document.querySelector('#overlay');
 const body = document.getElementsByTagName('body')[0];
 const paginationBtnContainer = document.querySelector('.pagination__btn-container');
-const { fetchDogs, createCard, renderGridList, renderPagination } = require('./utils');
-const url = '../assets/data/dogs.json';
+const url = '../assets/data/dogs.json'; //Define location of data file here.
+const { 
+  fetchDogs, 
+  createCard, 
+  renderGridList, 
+  renderPagination 
+} = require('./utils');
 
 let state = {
   dogs: [],
