@@ -5,6 +5,7 @@
   --color-text-primary: #646f79;
   --color-text-secondary: rgb(100, 111, 121);
   --color-text-white: #FFFFFF;
+  --color-header-primary: #151b26;
   --border-radius-primary: 3px;
   --background-color-dark-primary: #222B37;
   font-weight: normal;
@@ -23,6 +24,10 @@ h1, h2, h3, h4, h4, h6, p, div, a {
   font-family: var(--font-primary);
 }
 
+h1, h2, h3, h4, h4, h6 {
+  color: var(--color-header-primary);
+}
+
 #overlay {
   position: fixed;
   display: none;
@@ -38,8 +43,8 @@ h1, h2, h3, h4, h4, h6, p, div, a {
 }
 
 #modal {
-  min-width: 450px;
-  max-width: calc((calc(100vh - 220px)) * 0.75);
+  min-width: 500px;
+  max-width: min-content;
   margin: 0px auto;
   position: relative;
   top: 50%;
@@ -104,7 +109,7 @@ h1, h2, h3, h4, h4, h6, p, div, a {
 }
 
 .site-header h1 {
-  font-weight: 300;
+  font-weight: 400;
   font-family: var(--font-primary);
 }
 
@@ -177,7 +182,6 @@ h1, h2, h3, h4, h4, h6, p, div, a {
 
 .site-footer {
   width: 100%;
-  color: var(--color-text-secondary);
   font-family: var(--font-primary);
   text-align: center;
   background-color: #222B37;
@@ -252,6 +256,10 @@ h1, h2, h3, h4, h4, h6, p, div, a {
 }
 
 @media screen and (max-width: 991px) {
+  #container {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 16px;
+  }
   #nav {
     padding: 0px 16px;
   }  
@@ -270,7 +278,7 @@ h1, h2, h3, h4, h4, h6, p, div, a {
     padding: 0px 16px;
   }
   #modal {
-    min-width: unset;
+    min-width: 95%;
   }
   .modal__close {
     position: unset;
