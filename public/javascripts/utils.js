@@ -47,12 +47,13 @@ function renderGridList(dogs) {
   const hasGridItems = container.children.length > 0;
   const fragment = document.createDocumentFragment();
   const body = document.getElementsByTagName('body')[0];
+  const domain = document.domain;
   if (hasGridItems) container.innerHTML = '';
 
   for (let i = 0; i < dogs.length; i++) {
     const { name, image, source } = dogs[i];
-    const smallImgSrc = `/photo?format=jpeg&width=640&imagePath=${image}`;
-    const largeImgSrc = `/photo?format=jpeg&width=1280&imagePath=${image}`;
+    const smallImgSrc = `${window.location.href}photo?format=jpeg&width=640&imagePath=${image}`;
+    const largeImgSrc = `${window.location.href}photo?format=jpeg&width=1280&imagePath=${image}`;
     const card = createCard({name, imageSrc: smallImgSrc});
     card.addEventListener('click', (event) => {
       overlay.style.display="unset";
