@@ -27,6 +27,6 @@
     "babel-polyfill": "^6.26.0",
     "nodemon": "^1.19.1",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.12"
   }
 }
